@@ -1,0 +1,57 @@
+def rockpaperscissor(a,b):
+    if a==b:
+        return 't'
+    elif(a=='rock' and b=='paper' or a=='paper' and b=='scissor' or a=='scissor' and b=='rock'):
+         return 'l'
+    else:
+        return 'w'
+        
+print()
+print('********WELCOME TO ROCK,PAPER AND SCISSOR GAME********')
+print('\n')
+name=input('Enter you name:')
+print()
+print('''1.Start a new game
+2.How to play?''')
+choice=input(f'Enter your choice {name}: ')
+
+if choice=='1':
+        ch='yes'
+        while ch=='yes':
+            import random
+            u=input(f'''Enter your choice {name}:
+Rock
+Paper
+Scissor
+''')
+            uchoice=u.lower()
+            ls=['rock','paper','scissor']
+            if uchoice not in ls:
+                print('Invalid choice!')
+                break
+            gchoice=random.choice(ls)
+            print(f'Computer chooses:',gchoice)
+            res=rockpaperscissor(uchoice,gchoice)
+            if res=='t':
+                print(f'Oh, {name} its a tie!')
+            elif res=='l':
+                print(f'{name} you lost!')
+            else:
+                print(f'{name} you won!')
+            c=input('Would you like to play again?(yes or no)')
+            ch=c.lower()
+            if ch=='no':
+                print('Game is over!')
+                print('Have a good day')
+                break
+            
+elif choice=='2':
+    print('''1. You have to make a choice from rock, paper and scissor.
+2. Then the computer chooses from the same choices i.e. rock, paper and scissor.
+3. Rock wins over scissor, paper wins over rock, scissor wins over paper. Consequently the winner would be decided.
+4. If both player have same choices then its a tie.''')
+    print()
+    
+else:
+    print('Invalid choice!')
+
